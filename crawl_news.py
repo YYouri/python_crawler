@@ -1,8 +1,10 @@
+import logging
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import os
 
+logging.info("시작")
 # 1. 디렉토리 생성
 os.makedirs('docs', exist_ok=True)
 
@@ -22,3 +24,5 @@ with open('docs/index.md', 'w', encoding='utf-8') as f:
         title = article.text.strip()
         link = "https://m.etnews.com" + article['href']
         f.write(f"{i}. [{title}]({link})\n")
+
+logging.info("종료")
